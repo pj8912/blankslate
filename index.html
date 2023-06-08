@@ -40,11 +40,20 @@
     <meta name="twitter:description" content="blankslate - make quick notes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blankslate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
     <style>
+	.CodeMirror{
+		border-left:none;
+		border-right:none;
+		border-bottom:none;
+	}
         body {
             padding: 30px;
             font-family: Arial, Sans-serif;
 
+	    height:100%;
         }
 
         textarea {
@@ -54,12 +63,27 @@
             border: none;
             outline: none;
             width: 100%;
-        }
+       	    max-height: 300px;
+	}
+	#file-input{
+		max-height: 300px;
+	}
+
+	.CodeMirror,
+.CodeMirror-scroll, .CodeMirror-scrollbar-filler {
+    max-height: 500px;
+	}
+
     </style>
+  
+
 </head>
 
 <body>
-    <textarea rows="50" cols="50" placeholder="Start Writing..." autofocus></textarea>
+    <textarea id="file-input" rows="100" cols="50" placeholder="Start Writing..." autofocus></textarea>
+    <script>
+        var simplemde = new SimpleMDE({ element: document.getElementById("file-input"),spellChecker: false });
+    </script>
 </body>
 
 </html>
